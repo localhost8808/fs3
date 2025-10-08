@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Student Details</h2>
+
+  <table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td><span class="badge" [ngClass]="{
+          'bg-success': student.grade.startsWith('A'),
+          'bg-primary': student.grade.startsWith('B'),
+          'bg-warning text-dark': student.grade.startsWith('C'),
+          'bg-danger': student.grade.startsWith('D') || student.grade.startsWith('F')
+        }">{{ student.grade }}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
